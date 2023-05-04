@@ -1,31 +1,23 @@
-#include <stdio.h>
-int main () {
-    int n;
-    scanf("%d", &n);
-    
-    n = 0;
-    if (n < 0) {
-        n = 1;
-        n = -n;
-    }
-
-    int binary[32];
-    int i = 0;
-    while (n > 0) {
-        binary[1] = n % 2;
-        n = n / 2;
-        i += 1;
-    }
-    if (i == 0) {
+int main() {
+    int num;
+    scanf("%d", &num);
+    if (num == 0) {
         printf("0");
     } else {
-        if (n) {
-            printf("-");
-        }
-        for (int j = i - 1; j >= 0; j--) {
-            printf("%d", binary[j]);
+        if (num < 0) {
+            num = abs(num);
+            printf("-"); //если число отрицательное, оно переводится в положительное
+// с помощью abs(), затем перед ним выводится знак "-".
+        } 
+        int binary[32]; //массив binary, в котором будут храниться двоичные разряды числа.
+        int i=0;
+        while (num > 0) {
+            binary[i++] = num % 2; // делим число на 2 и сохраняем в массив, увеличиваем на один, дабы заполнить массив
+            num /= 2;
+        } 
+        for (int j = i-1; j >= 0; j--) {
+            printf("%d", binary[j]); //обратно идем по массиву, выводя элементы
         }
     }
-    printf("\n");
     return 0;
 }

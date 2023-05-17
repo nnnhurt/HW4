@@ -12,7 +12,7 @@ int main() {
     length = strlen(password);
     if (length >= 8 && length <= 14) { // проверяем длину пароля
         for (i = 0; i < length; i++) {
-            if (password[i] < (char)33 || password[i] > (char)126) {
+            if (password[i] < (char)33 || password[i] > (char)126) { //проверка на аске
                 printf("NO");
                 return 0; //если не проходит по длине, то сразу выводим "NO"
             }
